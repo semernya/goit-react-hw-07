@@ -3,7 +3,8 @@ import { Field, Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from "yup";
 import { useId } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+// import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contactsOps';
 
 const FeedbackSchema = Yup.object().shape({
     name: Yup.string().min(3, 'Too short!').max(50, 'Too long!').required('Required'),
@@ -12,8 +13,8 @@ const FeedbackSchema = Yup.object().shape({
 
 export default function ContactForm() {
 
-    const contactId = useId();
     const dispatch = useDispatch();
+    const contactId = useId();
     const initialValues = {
         name: '',
         number: '',
