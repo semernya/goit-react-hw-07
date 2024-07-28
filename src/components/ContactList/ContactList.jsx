@@ -8,6 +8,7 @@ export default function ContactList() {
 
     const contacts = useSelector(selectContacts);
     const filter = useSelector(selectNameFilter);
+    
     const visibleContacts = contacts.filter((contact) => {
         if (filter.trim() === '') {
             return contacts;

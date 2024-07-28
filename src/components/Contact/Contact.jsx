@@ -1,11 +1,11 @@
 import css from './Contact.module.css'
-import { deleteContact } from '../../redux/contactsSlice'
 import { useDispatch } from 'react-redux'
+import { deleteContact } from '../../redux/contactsOps';
 
-export default function Contact({contact: { name, number, id } }) {
+export default function Contact({ contact: { name, number, id } }) {
 
     const dispatch = useDispatch();
-    const handleDelete = (id) => {
+    const handleDelete = () => {
         dispatch(deleteContact(id));
     }
 
@@ -15,7 +15,7 @@ export default function Contact({contact: { name, number, id } }) {
                 <p className={css.text}>{name}</p>
                 <p className={css.text}>{number}</p>
             </div>
-            <button className={css.btn} type="button" onClick={() => handleDelete(id)}>Delete</button>
+            <button className={css.btn} type="button" onClick={handleDelete}>Delete</button>
         </div>
     )
 }

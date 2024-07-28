@@ -5,7 +5,7 @@ import ContactForm from '../ContactForm/ContactForm'
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact, selectError, selectLoading } from "../../redux/contactsSlice";
+import { selectError, selectLoading } from "../../redux/contactsSlice";
 import { useEffect } from 'react';
 import { fetchContacts } from '../../redux/contactsOps';
 
@@ -22,7 +22,7 @@ export default function App() {
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm onAdd={addContact} />
+      <ContactForm />
       <SearchBox />
       {loading && <Loading />}
       {error && <Error />}
